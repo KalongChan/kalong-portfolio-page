@@ -1,0 +1,39 @@
+$primary: #fffffe;
+// $secondary: #adb6c4;
+$secondary: #444;
+$highlight: #fed766;
+$bg-color: #272727;
+
+$normal-text-size: 24px;
+$middle-text-size: 20px;
+$mobile-text-size: 16px;
+
+$normal-title-size: 40px;
+$middle-title-size: 32px;
+$mobile-title-size: 32px;
+
+$normal-job-title-size: 30px;
+$middle-job-title-size: 20px;
+$mobile-job-title-size: 14px;
+
+$normal-job-subtitle-size: 12px;
+$middle-job-subtitle-size: 12px;
+$mobile-job-subtitle-size: 12px;
+
+@mixin middle {
+  @media (max-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin small {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}

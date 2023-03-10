@@ -1,0 +1,88 @@
+@use "./utils.scss";
+
+.tech {
+  display: flex;
+  margin-bottom: 250px;
+
+  @include utils.middle {
+    flex-direction: column-reverse;
+  }
+
+  @include utils.mobile {
+    margin-bottom: 100px;
+  }
+  &__right {
+    flex-shrink: 0;
+    flex-basis: 50%;
+    position: relative;
+
+    &-title {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      // align-items: center;
+      font-size: utils.$normal-title-size;
+      font-weight: bold;
+
+      @include utils.middle {
+        font-size: utils.$middle-title-size;
+        margin-bottom: 50px;
+      }
+      @include utils.mobile {
+        font-size: utils.$mobile-title-size;
+      }
+    }
+    &-img {
+      position: absolute;
+      top: 175px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      & img {
+        width: 30px;
+        height: 17.5px;
+        animation: arrow-animation 2.5s ease-in-out infinite;
+
+        @include utils.middle {
+          display: none;
+        }
+      }
+    }
+  }
+  &__left {
+    flex-shrink: 0;
+    flex-basis: 50%;
+
+    &-img-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+
+      img {
+        width: 20%;
+        height: 20%;
+        max-width: 150px;
+        margin-left: 10px;
+      }
+
+      &--rec {
+        width: 60% !important;
+        height: 60% !important;
+        max-width: 350px !important;
+      }
+    }
+  }
+}
+
+@keyframes arrow-animation {
+  0%,
+  50%,
+  100% {
+    transform: translateX(0%) rotate(-90deg);
+  }
+  25%,
+  75% {
+    transform: translateX(80%) rotate(-90deg);
+  }
+}

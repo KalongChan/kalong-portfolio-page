@@ -1,0 +1,193 @@
+@use "./utils.scss";
+
+.hero {
+  // margin: 80px 15%;
+  // justify-content: center;
+  //50px nav height , 24px*2 padding , 80px margin-top
+  // height: calc(100vh - 50px - 48px - 80px - 200px);
+  display: flex;
+  margin-top: 80px;
+
+  @include utils.middle {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  @include utils.mobile {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+  }
+
+  &__left {
+    flex-shrink: 0;
+    flex-basis: 50%;
+
+    &-title {
+      font-size: 60px;
+      margin-bottom: 40px;
+      @include utils.middle {
+        font-size: 50px;
+      }
+      @include utils.small {
+        font-size: 45px;
+      }
+      @include utils.mobile {
+        font-size: utils.$mobile-title-size;
+      }
+    }
+    &-text {
+      position: relative;
+      font-size: utils.$normal-text-size;
+      white-space: nowrap;
+
+      @include utils.middle {
+        font-size: utils.$middle-text-size;
+      }
+      @include utils.mobile {
+        font-size: utils.$mobile-text-size;
+      }
+    }
+
+    &--highlight {
+      color: utils.$highlight;
+    }
+    &-delete-line {
+      text-decoration: line-through;
+    }
+
+    &-scroll {
+      // position: absolute;
+      // bottom: -120px;
+      // left: 220px;
+      // transform: translateX(-50%);
+
+      margin-top: 200px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      font-size: 14px;
+      letter-spacing: 0.75em;
+      text-transform: uppercase;
+
+      @include utils.middle {
+        margin-top: 150px;
+      }
+
+      @include utils.small {
+        margin-top: 100px;
+      }
+
+      @include utils.mobile {
+        margin-top: 80px;
+      }
+
+      &-s,
+      &-c,
+      &-r,
+      &-o,
+      &-l-1,
+      &-l-2 {
+        display: inline-block;
+      }
+
+      &-s {
+        animation: bounce 3.5s ease-in-out infinite;
+      }
+
+      &-c {
+        animation: bounce 3.5s ease-in-out infinite 0.1s;
+      }
+
+      &-r {
+        animation: bounce 3.5s ease-in-out infinite 0.2s;
+      }
+
+      &-o {
+        animation: bounce 3.5s ease-in-out infinite 0.3s;
+      }
+
+      &-l-1 {
+        animation: bounce 3.5s ease-in-out infinite 0.4s;
+      }
+
+      &-l-2 {
+        animation: bounce 3.5s ease-in-out infinite 0.5s;
+      }
+    }
+
+    &-scroll:after {
+      position: absolute;
+      content: "";
+      height: 350px;
+      width: 2px;
+      top: 200%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: utils.$highlight;
+    }
+  }
+
+  &__right {
+    width: 600px;
+
+    @include utils.middle {
+      width: 500px;
+      height: 300px;
+      margin-bottom: 50px;
+    }
+
+    @include utils.mobile {
+      display: none;
+      margin-bottom: 0px;
+    }
+
+    &-svg {
+      &-type-writer {
+        display: flex;
+        align-items: center;
+        position: relative;
+        font-size: utils.$normal-text-size;
+        font-weight: bold;
+      }
+      &-type-writer-cursor {
+        font-size: 40px;
+
+        animation: cursor-flash 1.25s infinite;
+      }
+    }
+  }
+}
+
+@keyframes cursor-flash {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  10% {
+    transform: none;
+    opacity: 1;
+    color: utils.$secondary;
+  }
+
+  1%,
+  8% {
+    transform: translateY(-2px);
+    color: utils.$highlight;
+  }
+
+  4% {
+    transform: translateY(4px);
+    opacity: 1;
+    color: utils.$secondary;
+  }
+}

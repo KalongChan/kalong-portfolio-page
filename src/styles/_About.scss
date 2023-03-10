@@ -1,0 +1,95 @@
+@use "./utils.scss";
+
+.about {
+  //scroll underline 350px + 100px margin-top
+  margin-top: 450px;
+  margin-bottom: 250px;
+  display: flex;
+
+  @include utils.middle {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  @include utils.mobile {
+    margin-bottom: 100px;
+  }
+
+  &__left {
+    flex-shrink: 0;
+    flex-basis: 50%;
+
+    @include utils.middle {
+      max-width: 430px;
+    }
+
+    &-title {
+      text-align: center;
+      font-size: utils.$normal-title-size;
+      font-weight: bold;
+      margin-bottom: 50px;
+
+      @include utils.middle {
+        font-size: utils.$middle-title-size;
+      }
+    }
+
+    &-text {
+      font-size: utils.$normal-text-size;
+      font-weight: 400;
+      margin-bottom: 50px;
+
+      @include utils.middle {
+        font-size: utils.$middle-text-size;
+      }
+      @include utils.mobile {
+        font-size: utils.$mobile-text-size;
+      }
+    }
+
+    &-resume {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        height: 60px;
+        font-size: utils.$normal-text-size;
+        background-color: utils.$secondary;
+        border-radius: 15px;
+        border: 2px solid utils.$highlight;
+        cursor: pointer;
+
+        @include utils.middle {
+          font-size: utils.$middle-text-size;
+        }
+        @include utils.mobile {
+          width: 80%;
+          font-size: utils.$mobile-text-size;
+        }
+      }
+    }
+  }
+  &__right {
+    flex-grow: 0;
+    flex-basis: 50%;
+
+    &-img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+
+      @include utils.middle {
+        margin-bottom: 50px;
+      }
+      @include utils.mobile {
+        width: 280px !important;
+        height: 254px !important;
+      }
+    }
+  }
+}
