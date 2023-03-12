@@ -1,15 +1,16 @@
 @use "./utils.scss";
-@use "./Navbar";
-@use "./Hero";
-@use "./About";
-@use "./Technologies";
-@use "./Works";
+@use "./_Navbar";
+@use "./_Hero";
+@use "./_About";
+@use "./_Technologies";
+@use "./_Jobs";
 @use "./_Projects";
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -26,12 +27,9 @@ a {
 }
 
 .home-container {
-  // padding: 24px 60px;
-  margin-right: 15%;
-  margin-left: 15%;
+  padding: 0 15%;
 
   @include utils.mobile {
-    margin-right: 5%;
-    margin-left: 5%;
+    padding: 0 5%;
   }
 }

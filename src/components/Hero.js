@@ -1,5 +1,4 @@
 import {Fragment, useEffect, useState} from "react";
-import {debounce} from "lodash";
 
 const HomeHero = () => {
   const typewriterText = "Hello World!";
@@ -22,12 +21,11 @@ const HomeHero = () => {
         }
       }
     }, 200);
-    // return () => clearTimeout(timeout);
   }, [animatedText, typing]);
 
   return (
     <Fragment>
-      <div className="hero">
+      <div className="hero" id="home">
         <div className="hero__left">
           <div className="hero__left-title">
             Hi, my <br />

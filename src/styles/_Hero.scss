@@ -6,7 +6,7 @@
   //50px nav height , 24px*2 padding , 80px margin-top
   // height: calc(100vh - 50px - 48px - 80px - 200px);
   display: flex;
-  margin-top: 80px;
+  padding-top: 80px;
 
   @include utils.middle {
     flex-direction: column-reverse;

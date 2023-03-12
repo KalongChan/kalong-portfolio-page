@@ -2,8 +2,9 @@
 
 .about {
   //scroll underline 350px + 100px margin-top
-  margin-top: 450px;
-  margin-bottom: 250px;
+  margin-top: 400px;
+  padding-top: 50px;
+  margin-bottom: 200px;
   display: flex;
 
   @include utils.middle {
@@ -58,18 +59,14 @@
         align-items: center;
         width: 300px;
         height: 60px;
-        font-size: utils.$normal-text-size;
+        font-size: 16px;
         background-color: utils.$secondary;
         border-radius: 15px;
         border: 2px solid utils.$highlight;
         cursor: pointer;
 
-        @include utils.middle {
-          font-size: utils.$middle-text-size;
-        }
         @include utils.mobile {
           width: 80%;
-          font-size: utils.$mobile-text-size;
         }
       }
     }

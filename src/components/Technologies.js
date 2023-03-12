@@ -1,6 +1,6 @@
 const Technologies = () => {
   return (
-    <div className="tech">
+    <div className="tech" id="technologies">
       <div className="tech__left">
         <div className="tech__left-img-row">
           <img src="/Logos/react.png" alt="react" />
