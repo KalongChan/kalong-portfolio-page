@@ -1,0 +1,117 @@
+@use "./utils.scss";
+
+.project-group {
+  //   display: flex;
+  margin-bottom: 200px;
+  padding-top: 50px;
+
+  // @include utils.middle {
+  //   flex-direction: column-reverse;
+  // }
+
+  @include utils.mobile {
+    margin-bottom: 100px;
+  }
+
+  &__main-title {
+    font-size: utils.$normal-title-size;
+    font-weight: bold;
+    margin-bottom: 50px;
+    position: relative;
+
+    @include utils.middle {
+      font-size: utils.$middle-title-size;
+    }
+    @include utils.mobile {
+      // font-size: utils.$mobile-title-size;
+      font-size: 24px;
+    }
+
+    &:after {
+      position: absolute;
+      content: "";
+      margin-left: 20px;
+      width: 300px;
+      height: 2px;
+      background-color: utils.$highlight;
+      top: 50%;
+      @include utils.mobile {
+        max-width: 80px;
+      }
+    }
+  }
+}
+
+.project {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 150px;
+
+  &:nth-of-type(odd) {
+    flex-direction: row-reverse;
+  }
+
+  &__img {
+    width: 600px;
+  }
+
+  &__detail {
+    margin-left: 50px;
+    &:nth-of-type(even) {
+      color: red;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-size: utils.$normal-title-size;
+    font-weight: bold;
+    margin-bottom: 50px;
+
+    @include utils.middle {
+      font-size: utils.$middle-title-size;
+    }
+  }
+  &__desc {
+    text-align: end;
+    font-size: utils.$normal-text-size;
+    font-weight: 400;
+    margin-bottom: 50px;
+
+    @include utils.middle {
+      font-size: utils.$middle-text-size;
+    }
+    @include utils.mobile {
+      font-size: utils.$mobile-text-size;
+    }
+  }
+
+  & ul {
+    color: utils.$highlight;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  & li {
+    margin-right: 30px;
+    margin-bottom: 50px;
+  }
+  & li:last-of-type {
+    margin-right: 0;
+  }
+
+  &__links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 30px;
+  }
+
+  &__link {
+    margin-left: 15px;
+  }
+}
