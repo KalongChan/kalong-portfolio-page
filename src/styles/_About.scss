@@ -33,6 +33,9 @@
       @include utils.middle {
         font-size: utils.$middle-title-size;
       }
+      @include utils.mobile {
+        font-size: utils.$mobile-title-size;
+      }
     }
 
     &-text {

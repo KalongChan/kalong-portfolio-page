@@ -38,14 +38,14 @@
     }
     &-text {
       position: relative;
-      font-size: utils.$normal-text-size;
+      font-size: utils.$normal-hero-size;
       white-space: nowrap;
 
       @include utils.middle {
-        font-size: utils.$middle-text-size;
+        font-size: utils.$middle-hero-size;
       }
       @include utils.mobile {
-        font-size: utils.$mobile-text-size;
+        font-size: utils.$mobile-hero-size;
       }
     }
 

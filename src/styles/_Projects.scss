@@ -23,8 +23,7 @@
       font-size: utils.$middle-title-size;
     }
     @include utils.mobile {
-      // font-size: utils.$mobile-title-size;
-      font-size: 24px;
+      font-size: utils.$mobile-title-size;
     }
 
     &:after {
@@ -44,10 +43,17 @@
 
 .project {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: row;
   margin-bottom: 150px;
 
-  &:nth-of-type(odd) {
+  // &:nth-of-type(odd) {
+  //   flex-direction: row-reverse;
+  // }
+
+  &--odd {
+    @extend .project;
     flex-direction: row-reverse;
   }
 
@@ -57,25 +63,40 @@
 
   &__detail {
     margin-left: 50px;
-    &:nth-of-type(even) {
-      color: red;
+    flex-shrink: 0;
+    flex-basis: 40%;
+
+    &--odd {
+      margin-left: 0px;
+      margin-right: 50px;
     }
+    // &:nth-of-type(even) {
+    //   color: red;
+    // }
   }
 
   &__title {
     text-align: center;
-    font-size: utils.$normal-title-size;
+    font-size: utils.$normal-job-title-size;
     font-weight: bold;
     margin-bottom: 50px;
 
     @include utils.middle {
-      font-size: utils.$middle-title-size;
+      font-size: utils.$middle-job-title-size;
+    }
+    @include utils.mobile {
+      font-size: utils.$middle-job-title-size;
     }
   }
   &__desc {
     text-align: end;
     font-size: utils.$normal-text-size;
     font-weight: 400;
+    background-color: utils.$secondary;
+    min-height: 150px;
+    width: 100%;
+    border-radius: 8px;
+    padding: 20px;
     margin-bottom: 50px;
 
     @include utils.middle {
@@ -84,34 +105,64 @@
     @include utils.mobile {
       font-size: utils.$mobile-text-size;
     }
+    &--odd {
+      @extend .project__desc;
+      text-align: start;
+    }
   }
 
-  & ul {
+  &__stacks {
     color: utils.$highlight;
+    font-size: 14px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     list-style: none;
     margin: 0;
     padding: 0;
+
+    // @include utils.mobile {
+    //   font-size: utils.$mobile-text-size;
+    // }
+
+    &--odd {
+      @extend .project__stacks;
+      justify-content: flex-start;
+    }
   }
 
-  & li {
+  &__stack {
     margin-right: 30px;
-    margin-bottom: 50px;
-  }
-  & li:last-of-type {
-    margin-right: 0;
+    margin-bottom: 20px;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    &--odd {
+      @extend .project__stacks;
+    }
   }
 
   &__links {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    font-size: 30px;
+    font-size: 25px;
+
+    &--odd {
+      @extend .project__links;
+      justify-content: flex-start;
+    }
   }
 
   &__link {
-    margin-left: 15px;
+    padding: 0px 10px;
+    &--odd {
+      @extend .project__link;
+    }
+    &:hover {
+      color: utils.$highlight;
+    }
   }
 }

@@ -7,11 +7,6 @@ const Projects = () => {
     <div className="project-group" id="projects">
       <div className="project-group__main-title">Somethings I&#39;ve built</div>
       <div className="project">
-        {/* <img
-          src="/img/foodbearcat.png"
-          alt="foodbearcat"
-          className="project__img"
-        /> */}
         <Tilt
           tiltMaxAngleX={35}
           tiltMaxAngleY={35}
@@ -28,25 +23,23 @@ const Projects = () => {
             A fullstack food ordering website with fully functional order,
             register & login system
           </div>
-          <div className="project__stacks">
-            <ul>
-              <li>React JS</li>
-              <li>Next.js</li>
-              <li>Redux</li>
-              <li>MongoDB</li>
-            </ul>
-          </div>
+          <ul className="project__stacks">
+            <li className="project__stack">React JS</li>
+            <li className="project__stack">Next.js</li>
+            <li className="project__stack">Redux</li>
+            <li className="project__stack">MongoDB</li>
+          </ul>
           <div className="project__links">
             <Link
               legacyBehavior
               href="https://github.com/KalongChan/FoodBearCat"
             >
-              <a target="_blank" className="project__detail-link">
+              <a target="_blank" className="project__link">
                 <BsGithub />
               </a>
             </Link>
             <Link legacyBehavior href="https://food-bear-cat.vercel.app/">
-              <a target="_blank" className="project__detail-link">
+              <a target="_blank" className="project__link">
                 <BsBoxArrowUpRight />
               </a>
             </Link>
@@ -56,7 +49,7 @@ const Projects = () => {
 
       {/* TEST */}
 
-      <div className="project">
+      <div className="project--odd">
         {/* <img
           src="/img/foodbearcat.png"
           alt="foodbearcat"
@@ -72,31 +65,29 @@ const Projects = () => {
         >
           <img className="project__img" src="/img/foodbearcat.png" />
         </Tilt>
-        <div className="project__detail">
+        <div className="project__detail--odd">
           <div className="project__title">FoodBearCat</div>
-          <div className="project__desc">
+          <div className="project__desc--odd">
             A fullstack food ordering website with fully functional order,
             register & login system
           </div>
-          <div className="project__stacks">
-            <ul>
-              <li>React JS</li>
-              <li>Next.js</li>
-              <li>Redux</li>
-              <li>MongoDB</li>
-            </ul>
-          </div>
-          <div className="project__links">
+          <ul className="project__stacks--odd">
+            <li className="project__stack">React JS</li>
+            <li className="project__stack">Next.js</li>
+            <li className="project__stack">Redux</li>
+            <li className="project__stack">MongoDB</li>
+          </ul>
+          <div className="project__links--odd">
             <Link
               legacyBehavior
               href="https://github.com/KalongChan/FoodBearCat"
             >
-              <a target="_blank" className="project__detail-link">
+              <a target="_blank" className="project__link--odd">
                 <BsGithub />
               </a>
             </Link>
             <Link legacyBehavior href="https://food-bear-cat.vercel.app/">
-              <a target="_blank" className="project__detail-link">
+              <a target="_blank" className="project__link--odd">
                 <BsBoxArrowUpRight />
               </a>
             </Link>
@@ -106,11 +97,6 @@ const Projects = () => {
 
       {/* TEST */}
       <div className="project">
-        {/* <img
-          src="/img/foodbearcat.png"
-          alt="foodbearcat"
-          className="project__img"
-        /> */}
         <Tilt
           tiltMaxAngleX={35}
           tiltMaxAngleY={35}
@@ -127,14 +113,12 @@ const Projects = () => {
             A fullstack food ordering website with fully functional order,
             register & login system
           </div>
-          <div className="project__stacks">
-            <ul>
-              <li>React JS</li>
-              <li>Next.js</li>
-              <li>Redux</li>
-              <li>MongoDB</li>
-            </ul>
-          </div>
+          <ul className="project__stacks">
+            <li className="project__stack">React JS</li>
+            <li className="project__stack">Next.js</li>
+            <li className="project__stack">Redux</li>
+            <li className="project__stack">MongoDB</li>
+          </ul>
           <div className="project__links">
             <Link
               legacyBehavior
