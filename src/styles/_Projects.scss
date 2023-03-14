@@ -1,13 +1,8 @@
 @use "./utils.scss";
 
 .project-group {
-  //   display: flex;
   margin-bottom: 200px;
   padding-top: 50px;
-
-  // @include utils.middle {
-  //   flex-direction: column-reverse;
-  // }
 
   @include utils.mobile {
     margin-bottom: 100px;
@@ -46,33 +41,52 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  margin-bottom: 150px;
+  margin-bottom: 100px;
 
-  // &:nth-of-type(odd) {
-  //   flex-direction: row-reverse;
-  // }
+  @include utils.middle {
+    flex-direction: column !important;
+  }
 
-  &--odd {
+  @include utils.mobile {
+    display: block;
+    margin-bottom: 70px;
+  }
+
+  &--even {
     @extend .project;
     flex-direction: row-reverse;
   }
 
   &__img {
     width: 600px;
+    @include utils.mobile {
+      width: 90%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   &__detail {
     margin-left: 50px;
     flex-shrink: 0;
-    flex-basis: 40%;
+    flex-basis: 30%;
 
-    &--odd {
+    &--even {
+      @extend .project__detail;
       margin-left: 0px;
       margin-right: 50px;
     }
-    // &:nth-of-type(even) {
-    //   color: red;
-    // }
+
+    @include utils.middle {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+
+    @include utils.mobile {
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   &__title {
@@ -83,51 +97,60 @@
 
     @include utils.middle {
       font-size: utils.$middle-job-title-size;
+      margin-top: 50px;
     }
     @include utils.mobile {
       font-size: utils.$middle-job-title-size;
+      margin-top: 25px;
+      margin-bottom: 25px;
     }
   }
   &__desc {
     text-align: end;
     font-size: utils.$normal-text-size;
-    font-weight: 400;
     background-color: utils.$secondary;
     min-height: 150px;
-    width: 100%;
     border-radius: 8px;
     padding: 20px;
-    margin-bottom: 50px;
+
+    &--even {
+      @extend .project__desc;
+      text-align: start;
+    }
 
     @include utils.middle {
       font-size: utils.$middle-text-size;
-    }
-    @include utils.mobile {
-      font-size: utils.$mobile-text-size;
-    }
-    &--odd {
-      @extend .project__desc;
+      width: 500px;
       text-align: start;
+    }
+
+    @include utils.mobile {
+      font-size: utils.$mobile-text-small;
+      margin-left: auto;
+      margin-right: auto;
+      width: 90%;
     }
   }
 
   &__stacks {
     color: utils.$highlight;
-    font-size: 14px;
+    font-size: utils.$mobile-text-small;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     list-style: none;
     margin: 0;
     padding: 0;
+    white-space: nowrap;
 
-    // @include utils.mobile {
-    //   font-size: utils.$mobile-text-size;
-    // }
-
-    &--odd {
+    &--even {
       @extend .project__stacks;
       justify-content: flex-start;
+    }
+
+    @include utils.middle {
+      margin-top: 20px;
+      justify-content: center;
     }
   }
 
@@ -139,7 +162,7 @@
       margin-right: 0;
     }
 
-    &--odd {
+    &--even {
       @extend .project__stacks;
     }
   }
@@ -150,16 +173,19 @@
     align-items: center;
     font-size: 25px;
 
-    &--odd {
+    &--even {
       @extend .project__links;
       justify-content: flex-start;
+    }
+    @include utils.middle {
+      justify-content: flex-end;
     }
   }
 
   &__link {
-    padding: 0px 10px;
-    &--odd {
-      @extend .project__link;
+    padding-right: 10px;
+    &:last-of-type {
+      padding-right: 0px;
     }
     &:hover {
       color: utils.$highlight;

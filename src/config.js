@@ -40,4 +40,31 @@ module.exports = {
       ],
     },
   ],
+
+  projects: [
+    {
+      img: "/Projects/foodbearcat.png",
+      title: "FoodBearCat",
+      desc: "A fullstack food ordering website with fully functional order, register & login system",
+      stacks: ["React Js", "Next.js", "Redux", "MongoDB"],
+      github: "https://github.com/KalongChan/FoodBearCat",
+      liveDemo: "https://food-bear-cat.vercel.app/",
+    },
+    {
+      img: "/Projects/todo.png",
+      title: "ToDoList",
+      desc: "A simple Todo List built with React Hooks",
+      stacks: ["React Js"],
+      github: "https://github.com/KalongChan/TodoList",
+      liveDemo: "https://todo-a467b.web.app/",
+    },
+    {
+      img: "/Projects/yelpcamp.png",
+      title: "Yelpcamp",
+      desc: 'A fullstack project from the Udemy course "The Web Developer Bootcamp 2022" by Colt Steele',
+      stacks: ["EJs", "Bootstrap 5", "Express", "MongoDB"],
+      github: "https://github.com/KalongChan/Yelpcamp",
+      liveDemo: "https://yelpcamp-d1tm.onrender.com/campgrounds",
+    },
+  ],
 };

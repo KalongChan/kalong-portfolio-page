@@ -1,141 +1,96 @@
 import Link from "next/link";
 import Tilt from "react-parallax-tilt";
 import {BsGithub, BsBoxArrowUpRight} from "react-icons/bs";
+import {useEffect, useState} from "react";
+import {projects} from "../config";
 
 const Projects = () => {
+  const [mode, setMode] = useState("");
+  const handleWindowResize = () => {
+    if (window.innerWidth > 768) {
+      setMode("desktop");
+    } else {
+      setMode("mobile");
+    }
+  };
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      handleWindowResize();
+      window.addEventListener("resize", handleWindowResize);
+    }
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, [handleWindowResize]);
+
   return (
     <div className="project-group" id="projects">
       <div className="project-group__main-title">Somethings I&#39;ve built</div>
-      <div className="project">
-        <Tilt
-          tiltMaxAngleX={35}
-          tiltMaxAngleY={35}
-          perspective={900}
-          scale={1.1}
-          transitionSpeed={2000}
-          gyroscope={true}
+
+      {projects.map((project, index) => (
+        <div
+          className={`project${(index + 1) % 2 === 0 ? "--even" : ""}`}
+          key={index}
         >
-          <img className="project__img" src="/img/foodbearcat.png" />
-        </Tilt>
-        <div className="project__detail">
-          <div className="project__title">FoodBearCat</div>
-          <div className="project__desc">
-            A fullstack food ordering website with fully functional order,
-            register & login system
-          </div>
-          <ul className="project__stacks">
-            <li className="project__stack">React JS</li>
-            <li className="project__stack">Next.js</li>
-            <li className="project__stack">Redux</li>
-            <li className="project__stack">MongoDB</li>
-          </ul>
-          <div className="project__links">
-            <Link
-              legacyBehavior
-              href="https://github.com/KalongChan/FoodBearCat"
+          {mode === "desktop" && (
+            <Tilt
+              tiltMaxAngleX={35}
+              tiltMaxAngleY={35}
+              perspective={900}
+              scale={1.1}
+              transitionSpeed={2000}
+              gyroscope={true}
             >
-              <a target="_blank" className="project__link">
-                <BsGithub />
-              </a>
-            </Link>
-            <Link legacyBehavior href="https://food-bear-cat.vercel.app/">
-              <a target="_blank" className="project__link">
-                <BsBoxArrowUpRight />
-              </a>
-            </Link>
+              <img className="project__img" src={project.img} />
+            </Tilt>
+          )}
+          {mode === "mobile" && (
+            <img className="project__img" src={project.img} />
+          )}
+
+          <div
+            className={`project__detail${
+              (index + 1) % 2 === 0 ? "--even" : ""
+            }`}
+          >
+            <div className="project__title">{project.title}</div>
+            <div
+              className={`project__desc${
+                (index + 1) % 2 === 0 ? "--even" : ""
+              }`}
+            >
+              {project.desc}
+            </div>
+            <ul
+              className={`project__stacks${
+                (index + 1) % 2 === 0 ? "--even" : ""
+              }`}
+            >
+              {project.stacks.map((stack) => (
+                <li className="project__stack" key={`project-${stack}`}>
+                  {stack}
+                </li>
+              ))}
+            </ul>
+            <div
+              className={`project__links${
+                (index + 1) % 2 === 0 ? "--even" : ""
+              }`}
+            >
+              <Link legacyBehavior href={project.github}>
+                <a target="_blank" className="project__link">
+                  <BsGithub />
+                </a>
+              </Link>
+              <Link legacyBehavior href={project.liveDemo}>
+                <a target="_blank" className="project__link">
+                  <BsBoxArrowUpRight />
+                </a>
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* TEST */}
-
-      <div className="project--odd">
-        {/* <img
-          src="/img/foodbearcat.png"
-          alt="foodbearcat"
-          className="project__img"
-        /> */}
-        <Tilt
-          tiltMaxAngleX={35}
-          tiltMaxAngleY={35}
-          perspective={900}
-          scale={1.1}
-          transitionSpeed={2000}
-          gyroscope={true}
-        >
-          <img className="project__img" src="/img/foodbearcat.png" />
-        </Tilt>
-        <div className="project__detail--odd">
-          <div className="project__title">FoodBearCat</div>
-          <div className="project__desc--odd">
-            A fullstack food ordering website with fully functional order,
-            register & login system
-          </div>
-          <ul className="project__stacks--odd">
-            <li className="project__stack">React JS</li>
-            <li className="project__stack">Next.js</li>
-            <li className="project__stack">Redux</li>
-            <li className="project__stack">MongoDB</li>
-          </ul>
-          <div className="project__links--odd">
-            <Link
-              legacyBehavior
-              href="https://github.com/KalongChan/FoodBearCat"
-            >
-              <a target="_blank" className="project__link--odd">
-                <BsGithub />
-              </a>
-            </Link>
-            <Link legacyBehavior href="https://food-bear-cat.vercel.app/">
-              <a target="_blank" className="project__link--odd">
-                <BsBoxArrowUpRight />
-              </a>
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* TEST */}
-      <div className="project">
-        <Tilt
-          tiltMaxAngleX={35}
-          tiltMaxAngleY={35}
-          perspective={900}
-          scale={1.1}
-          transitionSpeed={2000}
-          gyroscope={true}
-        >
-          <img className="project__img" src="/img/foodbearcat.png" />
-        </Tilt>
-        <div className="project__detail">
-          <div className="project__title">FoodBearCat</div>
-          <div className="project__desc">
-            A fullstack food ordering website with fully functional order,
-            register & login system
-          </div>
-          <ul className="project__stacks">
-            <li className="project__stack">React JS</li>
-            <li className="project__stack">Next.js</li>
-            <li className="project__stack">Redux</li>
-            <li className="project__stack">MongoDB</li>
-          </ul>
-          <div className="project__links">
-            <Link
-              legacyBehavior
-              href="https://github.com/KalongChan/FoodBearCat"
-            >
-              <a target="_blank" className="project__link">
-                <BsGithub />
-              </a>
-            </Link>
-            <Link legacyBehavior href="https://food-bear-cat.vercel.app/">
-              <a target="_blank" className="project__link">
-                <BsBoxArrowUpRight />
-              </a>
-            </Link>
-          </div>
-        </div>
-      </div>
+      ))}
     </div>
   );
 };

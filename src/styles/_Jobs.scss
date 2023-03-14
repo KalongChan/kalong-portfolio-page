@@ -116,9 +116,8 @@
     }
   }
 
-  &-desc {
-    font-size: 14px;
-
+  &__desc {
+    font-size: utils.$mobile-text-small;
     & ul {
       padding: 0;
       list-style: none;
