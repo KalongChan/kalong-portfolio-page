@@ -1,6 +1,6 @@
 import {Fragment, useEffect, useState} from "react";
 
-const HomeHero = () => {
+const HomeHero = ({inView}) => {
   const typewriterText = "Hello World!";
   const [animatedText, setAnimatedText] = useState([]);
   const [typing, setTyping] = useState(true);
@@ -25,6 +25,8 @@ const HomeHero = () => {
 
   return (
     <Fragment>
+      <h2>{`Header inside viewport ${inView}.`}</h2>
+
       <div className="hero" id="home">
         <div className="hero__left">
           <div className="hero__left-title">

@@ -106,7 +106,10 @@
     }
   }
   &__desc {
-    text-align: end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     font-size: utils.$normal-text-size;
     background-color: utils.$secondary;
     min-height: 150px;
@@ -115,7 +118,6 @@
 
     &--even {
       @extend .project__desc;
-      text-align: start;
     }
 
     @include utils.middle {

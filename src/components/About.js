@@ -1,12 +1,14 @@
 import Image from "next/image";
 import {Fragment} from "react";
 
-const About = () => {
+const About = ({inView}) => {
   return (
     <Fragment>
       <div className="about" id="about">
         <div className="about__left">
           <div className="about__left-title">About Me</div>
+          <h2>{`Header inside viewport ${inView}.`}</h2>
+
           <div className="about__left-text">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere
             repellat quae mollitia eum reprehenderit non exercitationem eveniet

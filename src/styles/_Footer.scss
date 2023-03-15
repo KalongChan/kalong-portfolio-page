@@ -1,0 +1,41 @@
+@use "./utils.scss";
+
+.footer {
+  display: flex;
+  flex-direction: column;
+
+  &__links {
+    font-size: 30px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    @include utils.mobile {
+      display: flex;
+    }
+
+    &-link {
+      margin-right: 40px;
+      transition: all 0.3s ease-in-out;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      &:hover {
+        cursor: pointer;
+        color: utils.$highlight;
+        transform: translateY(-3px) scale(1.05);
+      }
+    }
+  }
+
+  &__text {
+    font-size: utils.$normal-job-subtitle-size;
+    text-align: center;
+    padding: 20px;
+  }
+}

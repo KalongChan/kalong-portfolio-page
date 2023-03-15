@@ -1,0 +1,50 @@
+@use "./utils.scss";
+
+.sidebar {
+  position: fixed;
+  left: 5%;
+  bottom: 0;
+
+  @include utils.mobile {
+    display: none;
+  }
+
+  &__container {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    width: 30px;
+    &:after {
+      display: block;
+      content: "";
+      height: 90px;
+      width: 1px;
+      left: 0;
+      background-color: utils.$highlight;
+      margin: 0 auto;
+    }
+  }
+
+  &__items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &-item {
+      font-size: 20px;
+      padding: 5px;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        cursor: pointer;
+        color: utils.$highlight;
+        transform: translateY(-3px) scale(1.05);
+      }
+
+      &:last-of-type {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

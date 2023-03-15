@@ -5,24 +5,24 @@ const Navbar = () => {
   const [scrollUp, setScrollUp] = useState(true);
   const [prevScroll, setPrevScroll] = useState(0);
 
-  const scrollDirection = () => {
-    if (window.pageYOffset > prevScroll) {
-      setScrollUp(false);
-    } else {
-      setScrollUp(true);
-    }
-    setPrevScroll(window.pageYOffset);
-  };
+  // const scrollDirection = () => {
+  //   if (window.pageYOffset > prevScroll) {
+  //     setScrollUp(false);
+  //   } else {
+  //     setScrollUp(true);
+  //   }
+  //   setPrevScroll(window.pageYOffset);
+  // };
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", scrollDirection);
-    }
-    return () => {
-      window.removeEventListener("scroll", scrollDirection);
-    };
-  }),
-    [prevScroll];
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     window.addEventListener("scroll", scrollDirection);
+  //   }
+  //   return () => {
+  //     window.removeEventListener("scroll", scrollDirection);
+  //   };
+  // }),
+  //   [prevScroll];
 
   const scrollToTop = () => {
     if (typeof window !== "undefined") {

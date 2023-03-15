@@ -29,10 +29,9 @@ const Jobs = () => {
                 ))}
               </ul>
             </div>
-
-            <img src="/img/circle-spin.svg" alt="" className="job__spinning" />
           </div>
         ))}
+        <img src="/img/circle-spin.svg" alt="" className="job__spinning" />
       </div>
     </div>
   );
