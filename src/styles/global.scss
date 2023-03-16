@@ -29,10 +29,12 @@ a {
   text-decoration: none;
 }
 
-.home-container {
-  padding: 0 15%;
+.home {
+  &__container {
+    padding: 0 15%;
 
-  @include utils.mobile {
-    padding: 0 5%;
+    @include utils.mobile {
+      padding: 0 5%;
+    }
   }
 }

@@ -1,9 +1,10 @@
 import Link from "next/link";
+import {Fragment} from "react";
 import {jobs} from "../config";
 
 const Jobs = () => {
   return (
-    <div className="jobs" id="jobs">
+    <Fragment>
       <div className="jobs__main-title">Where I&#39;ve Worked</div>
       <div className="job">
         {jobs.map((job) => (
@@ -33,7 +34,7 @@ const Jobs = () => {
         ))}
         <img src="/img/circle-spin.svg" alt="" className="job__spinning" />
       </div>
-    </div>
+    </Fragment>
   );
 };
 

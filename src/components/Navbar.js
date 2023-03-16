@@ -37,6 +37,8 @@ const Navbar = ({active}) => {
     {nav: "home", id: "#home"},
     {nav: "about", id: "#about"},
     {nav: "experiences", id: "#jobs"},
+    {nav: "projects", id: "#projects"},
+    {nav: "contact", id: "#contact"},
   ];
 
   return (

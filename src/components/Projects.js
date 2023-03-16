@@ -1,30 +1,12 @@
 import Link from "next/link";
 import Tilt from "react-parallax-tilt";
 import {BsGithub, BsBoxArrowUpRight} from "react-icons/bs";
-import {useEffect, useState} from "react";
+import {Fragment, useEffect, useState} from "react";
 import {projects} from "../config";
 
-const Projects = () => {
-  const [mode, setMode] = useState("");
-  const handleWindowResize = () => {
-    if (window.innerWidth > 768) {
-      setMode("desktop");
-    } else {
-      setMode("mobile");
-    }
-  };
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      handleWindowResize();
-      window.addEventListener("resize", handleWindowResize);
-    }
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  }, [handleWindowResize]);
-
+const Projects = ({mode}) => {
   return (
-    <div className="project-group" id="projects">
+    <Fragment>
       <div className="project-group__main-title">What I&#39;ve built</div>
 
       {projects.map((project, index) => (
@@ -91,7 +73,7 @@ const Projects = () => {
           </div>
         </div>
       ))}
-    </div>
+    </Fragment>
   );
 };
 export default Projects;

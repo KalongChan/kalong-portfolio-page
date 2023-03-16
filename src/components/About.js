@@ -1,9 +1,8 @@
 import Image from "next/image";
-import {Fragment} from "react";
 
 const About = () => {
   return (
-    <Fragment>
+    <div className="about">
       <div className="about__left">
         <div className="about__left-title">About Me</div>
         <div className="about__left-text">
@@ -23,7 +22,7 @@ const About = () => {
           className="about__right-img"
         />
       </div>
-    </Fragment>
+    </div>
   );
 };
 
