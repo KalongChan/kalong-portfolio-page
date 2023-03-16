@@ -1,7 +1,7 @@
 import Link from "next/link";
 import {useEffect, useRef, useState} from "react";
 
-const Navbar = () => {
+const Navbar = ({active}) => {
   const [scrollUp, setScrollUp] = useState(true);
   const [prevScroll, setPrevScroll] = useState(0);
 
@@ -33,9 +33,33 @@ const Navbar = () => {
     }
   };
 
+  const navData = [
+    {nav: "home", id: "#home"},
+    {nav: "about", id: "#about"},
+    {nav: "experiences", id: "#jobs"},
+  ];
+
   return (
     <header className={`navbar`}>
-      <div className={`navbar__container${scrollUp ? "--shown" : "--hidden"}`}>
+      <div className="navbar__container">
+        <ul className="navbar__list">
+          {navData.map((item, index) => (
+            <li
+              className={`navbar__list-item${
+                active.lastIndexOf(true) === index ? "--active" : ""
+              }`}
+              id={item.id}
+              key={index}
+            >
+              <Link href={item.id} scroll={false}>
+                {item.nav}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* <div className={`navbar__container${scrollUp ? "--shown" : "--hidden"}`}>
         <ul className={`navbar__list`}>
           <li className="navbar__list-item" onClick={scrollToTop}>
             home
@@ -62,7 +86,7 @@ const Navbar = () => {
           </li>
           <li className="navbar__list-item">resume</li>
         </ul>
-      </div>
+      </div> */}
     </header>
   );
 };

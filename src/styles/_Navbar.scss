@@ -44,6 +44,11 @@ $nav-height: 50px;
       &:hover {
         color: utils.$highlight;
       }
+
+      &--active {
+        @extend .navbar__list-item;
+        color: utils.$highlight;
+      }
     }
   }
 }

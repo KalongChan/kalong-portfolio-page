@@ -19,7 +19,7 @@ export default function Home() {
   });
 
   const {ref: aboutRef, inView: aboutInView} = useInView({
-    threshold: 0.3,
+    threshold: 0.8,
   });
 
   useEffect(() => {
@@ -32,11 +32,11 @@ export default function Home() {
 
   return (
     <div className="home-container">
-      <Navbar />
-      <div className="test" ref={heroRef}>
+      <Navbar active={active} />
+      <div className="hero" id="home" ref={heroRef}>
         <Hero inView={heroInView} />
       </div>
-      <div className="about" ref={aboutRef}>
+      <div className="about" id="about" ref={aboutRef}>
         <About inView={aboutInView} />
       </div>
       <Technologies />
