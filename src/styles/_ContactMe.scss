@@ -102,8 +102,8 @@
     &-label {
       position: absolute;
       color: utils.$primary;
-      top: 50%;
-      transform: translateY(-25%);
+      top: 55%;
+      transform: translateY(-27.5%);
       left: 15px;
       transition: all 0.3s ease-in-out;
 
@@ -126,16 +126,9 @@
       &:valid {
         + .contact__form-label {
           font-size: 12px;
-          transform: translateY(calc(-50% - 2px));
+          transform: translateY(calc(-50% - 5px));
         }
       }
-
-      // &:valid {
-      //   + .contact__form-label {
-      //     font-size: 12px;
-      //     transform: translateY(calc(-50% - 2px));
-      //   }
-      // }
     }
 
     &--message {
@@ -153,7 +146,7 @@
       &:valid {
         + .contact__form-label {
           font-size: 12px;
-          transform: translateY(calc(-50% - 2px));
+          transform: translateY(calc(-50% - 5px));
         }
       }
     }

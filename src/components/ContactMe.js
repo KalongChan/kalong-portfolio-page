@@ -21,7 +21,12 @@ const ContactMe = () => {
     setSendClicked(true);
     setTimeout(async () => {
       // mailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', values, 'YOUR_PUBLIC_KEY')
-
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        values,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      );
       setMsgSent(true);
       setSendClicked(false);
       resetForm();
@@ -117,7 +122,7 @@ const ContactMe = () => {
                 className={`contact__form-btn`}
                 type="submit"
               >
-                {sendClicked ? <span class="loader"></span> : "Submit"}
+                {sendClicked ? <span className="loader"></span> : "Submit"}
               </button>
             </Form>
           )}
