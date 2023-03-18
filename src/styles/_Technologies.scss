@@ -10,6 +10,7 @@
   }
 
   @include utils.mobile {
+    padding-top: 70px;
     margin-bottom: 100px;
   }
   &__right {

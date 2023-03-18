@@ -9,33 +9,30 @@ import Sidebar from "@/components/Sidebar";
 import Navbar from "@/components/Navbar";
 import {useInView} from "react-intersection-observer";
 import {Fragment, useEffect, useState} from "react";
+import MobileNavbar from "@/components/MobileNavbar";
 
 export default function Home() {
   //Navbar active section checker
-  const [active, setActive] = useState([]);
+  const [activeSection, setActiveSection] = useState([]);
 
   const {ref: heroRef, inView: heroInView} = useInView({
     threshold: 0.3,
   });
-
   const {ref: aboutRef, inView: aboutInView} = useInView({
     threshold: 0.3,
   });
-
   const {ref: jobsRef, inView: jobsInView} = useInView({
     threshold: 0.3,
   });
-
   const {ref: projectsRef, inView: projectsInView} = useInView({
     threshold: 0.3,
   });
-
   const {ref: contactRef, inView: contactInView} = useInView({
     threshold: 0.3,
   });
 
   useEffect(() => {
-    setActive([
+    setActiveSection([
       heroInView,
       aboutInView,
       jobsInView,
@@ -43,8 +40,6 @@ export default function Home() {
       contactInView,
     ]);
   }, [heroInView, aboutInView, jobsInView, projectsInView, contactInView]);
-
-  console.log(active, active.lastIndexOf(true));
 
   //Desktop && Mobile mode checker
   const [mode, setMode] = useState("");
@@ -68,7 +63,8 @@ export default function Home() {
   return (
     <Fragment>
       {/* Navbar */}
-      {mode === "desktop" && <Navbar active={active} />}
+      {mode === "desktop" && <Navbar activeSection={activeSection} />}
+      {mode === "mobile" && <MobileNavbar />}
 
       {/* Body */}
       <div className="home__container">

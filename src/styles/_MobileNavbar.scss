@@ -1,0 +1,146 @@
+@use "./utils.scss";
+
+$mobile-nav-height: 70px;
+
+.mobile-nav {
+  position: sticky;
+  top: 0;
+  height: $mobile-nav-height;
+  width: 100%;
+  background-color: utils.$bg-color;
+  box-shadow: 0 10px 20px -10px utils.$bg-color;
+  z-index: 9;
+
+  &__slide-menu {
+    position: fixed;
+    top: 0;
+    right: -100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 60vw;
+    background-color: utils.$secondary;
+    transition: all 0.3s ease-in-out;
+    z-index: 99;
+
+    &--active {
+      @extend .mobile-nav__slide-menu;
+      right: 0;
+    }
+  }
+
+  &__slide-menu-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__slide-menu-item {
+    text-transform: uppercase;
+    text-align: center;
+    padding: 20px;
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+    &--active {
+      @extend .mobile-nav__overlay;
+      display: block;
+    }
+  }
+}
+
+.hamburger-container {
+  position: fixed;
+  right: 5%;
+  width: 42px;
+  height: $mobile-nav-height;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.mobile-nav__hamburger {
+  position: relative;
+  margin-left: auto;
+
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  z-index: 999;
+
+  & span {
+    display: block;
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    background: utils.$highlight;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+    transition: 0.25s ease-in-out;
+
+    &:nth-child(1) {
+      top: 20px;
+    }
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      top: 35px;
+    }
+
+    &:nth-child(4) {
+      top: 50px;
+    }
+  }
+
+  &--active {
+    @extend .mobile-nav__hamburger;
+    & span {
+      &:nth-child(1) {
+        top: 18px;
+        width: 0%;
+        left: 50%;
+      }
+
+      &:nth-child(2) {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+
+      &:nth-child(3) {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+      }
+
+      &:nth-child(4) {
+        top: 18px;
+        width: 0%;
+        left: 50%;
+      }
+    }
+  }
+}

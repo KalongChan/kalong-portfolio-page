@@ -1,7 +1,8 @@
 import Link from "next/link";
 import {useEffect, useRef, useState} from "react";
+import {navData} from "../config";
 
-const Navbar = ({active}) => {
+const Navbar = ({activeSection}) => {
   const [scrollUp, setScrollUp] = useState(true);
   const [prevScroll, setPrevScroll] = useState(0);
 
@@ -33,14 +34,6 @@ const Navbar = ({active}) => {
     }
   };
 
-  const navData = [
-    {nav: "home", id: "#home"},
-    {nav: "about", id: "#about"},
-    {nav: "experiences", id: "#jobs"},
-    {nav: "projects", id: "#projects"},
-    {nav: "contact", id: "#contact"},
-  ];
-
   return (
     <header className={`navbar`}>
       <div className="navbar__container">
@@ -48,7 +41,7 @@ const Navbar = ({active}) => {
           {navData.map((item, index) => (
             <li
               className={`navbar__list-item${
-                active.lastIndexOf(true) === index ? "--active" : ""
+                activeSection.lastIndexOf(true) === index ? "--active" : ""
               }`}
               id={item.id}
               key={index}
