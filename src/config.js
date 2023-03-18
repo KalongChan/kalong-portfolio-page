@@ -5,7 +5,7 @@ module.exports = {
       company: "Presslogic",
       location: "Taipei, Taiwan",
       url: "https://presslogic.com/",
-      time: "AUG 2022 - ?????",
+      time: "Aug 2022 - Present",
       desc: [
         "Create test cases and perform tests for digital media platforms",
         "Report and track bugs through Jira",
@@ -18,7 +18,7 @@ module.exports = {
       company: "Dreamshub",
       location: "Hong Kong",
       url: "https://www.dreamshub.com/",
-      time: "APR 2018 - JUL 2020",
+      time: "Apr 2018 - Jul 2020",
       desc: [
         "Plan & create test plan/test cases for various projects, mainly on online casino",
         "Prepare test data or fake data on staging environment",
@@ -32,7 +32,7 @@ module.exports = {
       company: "Four Directions",
       location: "Hong Kong",
       url: "https://www.4d.com.hk/",
-      time: "OCT 2014 - JUL 2016",
+      time: "Oct 2014 - Jul 2016",
       desc: [
         "Create test plans/cases and perform tests for a mobile game app",
         "Prepare detailed test reports",
@@ -49,6 +49,14 @@ module.exports = {
       stacks: ["React Js", "Next.js", "Redux", "MongoDB"],
       github: "https://github.com/KalongChan/FoodBearCat",
       liveDemo: "https://food-bear-cat.vercel.app/",
+    },
+    {
+      img: "/Projects/portfoliopage.png",
+      title: "My Protfolio Page",
+      desc: "The site you're currently viewing",
+      stacks: ["React Js", "Scss"],
+      github: "https://github.com/KalongChan/kalong-portfolio-page",
+      liveDemo: "https://kalongchan.vercel.app/",
     },
     {
       img: "/Projects/todo.png",

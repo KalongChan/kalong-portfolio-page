@@ -65,6 +65,7 @@ $mobile-nav-height: 70px;
   height: $mobile-nav-height;
   cursor: pointer;
   z-index: 999;
+  @include utils.delayOpacity;
 }
 
 .mobile-nav__hamburger {

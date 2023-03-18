@@ -23,6 +23,7 @@
     font-size: utils.$normal-title-size;
     font-weight: bold;
     margin-bottom: 50px;
+    @include utils.delayOpacity;
 
     @include utils.middle {
       font-size: utils.$middle-title-size;
@@ -37,6 +38,7 @@
     text-align: center;
     font-size: utils.$normal-text-size;
     margin-bottom: 50px;
+    @include utils.delayOpacity;
 
     @include utils.middle {
       font-size: utils.$middle-text-size;
@@ -52,6 +54,7 @@
     flex-direction: column;
     align-items: center;
     height: 100px;
+    @include utils.delayOpacity;
   }
   &__arrow img {
     width: 30px;
@@ -73,6 +76,8 @@
 
   &__form {
     width: 60%;
+    @include utils.delayOpacity;
+
     @include utils.middle {
       width: 80%;
     }
@@ -110,7 +115,7 @@
 
       &--message {
         @extend .contact__form-label;
-        top: 25%;
+        top: 15%;
       }
     }
     &-input {
@@ -137,7 +142,7 @@
       color: utils.$primary;
       padding: 30px 16px;
       width: 100%;
-      height: 100px;
+      height: 200px;
       border-radius: 10px;
       background-color: utils.$secondary;
       outline: none;
@@ -171,7 +176,7 @@
       color: utils.$primary;
       background-color: utils.$secondary;
       border-radius: 15px;
-      border: none;
+      border: 2px solid utils.$highlight;
       cursor: pointer;
 
       @include utils.middle {

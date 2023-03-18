@@ -1,6 +1,20 @@
-const Technologies = () => {
+import {useEffect, useState} from "react";
+
+const Technologies = ({inView}) => {
+  const [reveal, setReveal] = useState(false);
+
+  useEffect(() => {
+    if (inView) {
+      setReveal(true);
+    }
+  }, [inView]);
+
   return (
-    <div className="tech" id="technologies">
+    <div
+      className={`tech ${reveal ? "--loaded" : ""}`}
+      id="technologies"
+      style={{transitionDelay: "200ms"}}
+    >
       <div className="tech__left">
         <div className="tech__left-img-row">
           <img src="/Logos/react.png" alt="react" />

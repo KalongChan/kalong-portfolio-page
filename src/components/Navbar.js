@@ -2,9 +2,10 @@ import Link from "next/link";
 import {useEffect, useRef, useState} from "react";
 import {navData} from "../config";
 
-const Navbar = ({activeSection}) => {
-  const [scrollUp, setScrollUp] = useState(true);
-  const [prevScroll, setPrevScroll] = useState(0);
+const Navbar = ({activeSection, isNavLoaded}) => {
+  // const [scrollUp, setScrollUp] = useState(true);
+  // const [prevScroll, setPrevScroll] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   // const scrollDirection = () => {
   //   if (window.pageYOffset > prevScroll) {
@@ -34,17 +35,22 @@ const Navbar = ({activeSection}) => {
     }
   };
 
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   return (
     <header className={`navbar`}>
       <div className="navbar__container">
         <ul className="navbar__list">
           {navData.map((item, index) => (
             <li
-              className={`navbar__list-item${
+              className={`navbar__list-item${isLoaded ? "--loaded" : ""}${
                 activeSection.lastIndexOf(true) === index ? "--active" : ""
               }`}
               id={item.id}
               key={index}
+              style={{transitionDelay: isNavLoaded ? "" : `${index * 100}ms`}}
             >
               <Link href={item.id} scroll={false}>
                 {item.nav}
@@ -53,35 +59,6 @@ const Navbar = ({activeSection}) => {
           ))}
         </ul>
       </div>
-
-      {/* <div className={`navbar__container${scrollUp ? "--shown" : "--hidden"}`}>
-        <ul className={`navbar__list`}>
-          <li className="navbar__list-item" onClick={scrollToTop}>
-            home
-          </li>
-          <li className="navbar__list-item">
-            <Link href="#about" scroll={false}>
-              about
-            </Link>
-          </li>
-          <li className="navbar__list-item">
-            <Link href="#technologies" scroll={false}>
-              technologies
-            </Link>
-          </li>
-          <li className="navbar__list-item">
-            <Link href="#jobs" scroll={false}>
-              experiences
-            </Link>
-          </li>
-          <li className="navbar__list-item">
-            <Link href="#projects" scroll={false}>
-              projects
-            </Link>
-          </li>
-          <li className="navbar__list-item">resume</li>
-        </ul>
-      </div> */}
     </header>
   );
 };

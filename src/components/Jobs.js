@@ -1,14 +1,28 @@
 import Link from "next/link";
-import {Fragment} from "react";
+import {Fragment, useEffect, useState} from "react";
 import {jobs} from "../config";
 
-const Jobs = () => {
+const Jobs = ({inView}) => {
+  const [reveal, setReveal] = useState(false);
+
+  useEffect(() => {
+    if (inView) {
+      setReveal(true);
+    }
+  }, [inView]);
+
   return (
     <Fragment>
-      <div className="jobs__main-title">Where I&#39;ve Worked</div>
+      <div className={`jobs__main-title ${reveal ? "--loaded" : ""}`}>
+        Where I&#39;ve Worked
+      </div>
       <div className="job">
-        {jobs.map((job) => (
-          <div className="job__company" key={job.company}>
+        {jobs.map((job, index) => (
+          <div
+            className={`job__company ${reveal ? "--loaded" : ""}`}
+            key={job.company}
+            style={{transitionDelay: `${index * 200}ms`}}
+          >
             <div className="job__title">
               {job.title}&nbsp;
               <span>
@@ -32,7 +46,12 @@ const Jobs = () => {
             </div>
           </div>
         ))}
-        <img src="/img/circle-spin.svg" alt="" className="job__spinning" />
+        <img
+          src="/img/circle-spin.svg"
+          alt=""
+          className={`job__spinning ${reveal ? "--loaded" : ""}`}
+          style={{transitionDelay: "200ms"}}
+        />
       </div>
     </Fragment>
   );

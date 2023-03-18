@@ -7,6 +7,7 @@
   // height: calc(100vh - 50px - 48px - 80px - 200px);
   display: flex;
   padding-top: 80px;
+  transition: all 0.3s ease-in-out;
 
   @include utils.middle {
     flex-direction: column-reverse;
@@ -26,6 +27,8 @@
     &-title {
       font-size: 60px;
       margin-bottom: 40px;
+      @include utils.delayOpacity;
+
       @include utils.middle {
         font-size: 50px;
       }
@@ -40,6 +43,7 @@
       position: relative;
       font-size: utils.$normal-hero-size;
       white-space: nowrap;
+      @include utils.delayOpacity;
 
       @include utils.middle {
         font-size: utils.$middle-hero-size;
@@ -69,6 +73,7 @@
       font-size: 14px;
       letter-spacing: 0.75em;
       text-transform: uppercase;
+      @include utils.delayOpacity;
 
       @include utils.middle {
         margin-top: 150px;
@@ -122,23 +127,14 @@
         height: 350px;
         width: 2px;
         background-color: utils.$highlight;
+        @include utils.delayOpacity;
       }
     }
-
-    // &-scroll:after {
-    //   position: absolute;
-    //   content: "";
-    //   height: 350px;
-    //   width: 2px;
-    //   top: 200%;
-    //   left: 50%;
-    //   transform: translateX(-50%);
-    //   background-color: utils.$highlight;
-    // }
   }
 
   &__right {
     width: 600px;
+    @include utils.delayOpacity;
 
     @include utils.middle {
       width: 500px;

@@ -4,6 +4,7 @@ const HomeHero = () => {
   const typewriterText = "Hello World!";
   const [animatedText, setAnimatedText] = useState([]);
   const [typing, setTyping] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -23,21 +24,37 @@ const HomeHero = () => {
     }, 200);
   }, [animatedText, typing]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoaded(true);
+    }, 500);
+  }, []);
+
+  //Show Order: left-title > left-text > hero__right > left-scroll
   return (
     <Fragment>
       <div className="hero__left">
-        <div className="hero__left-title">
+        <div
+          className={`hero__left-title ${isLoaded ? "--loaded" : ""}`}
+          style={{transitionDelay: "100ms"}}
+        >
           Hi, my <br />
           name is <b className="hero__left--highlight">Kalong</b>
         </div>
-        <div className="hero__left-text">
+        <div
+          className={`hero__left-text ${isLoaded ? "--loaded" : ""}`}
+          style={{transitionDelay: "300ms"}}
+        >
           I&#39;m a <b className="hero__left--highlight">QA Engineer</b>
           {" / "}
           <b className="hero__left--highlight">Front-end Developer</b>
           <br />
           from <span className="hero__left-delete-line">Hong Kong</span> Taiwan
         </div>
-        <div className="hero__left-scroll">
+        <div
+          className={`hero__left-scroll ${isLoaded ? "--loaded" : ""}`}
+          style={{transitionDelay: "700ms"}}
+        >
           <div className="hero__left-scroll-s">s</div>
           <div className="hero__left-scroll-c">c</div>
           <div className="hero__left-scroll-r">r</div>
@@ -45,10 +62,18 @@ const HomeHero = () => {
           <div className="hero__left-scroll-l-1">l</div>
           <div className="hero__left-scroll-l-2">l</div>
         </div>
-        <div className="hero__left-scroll-underline"></div>
+        <div
+          className={`hero__left-scroll-underline ${
+            isLoaded ? "--loaded" : ""
+          }`}
+          style={{transitionDelay: "700ms"}}
+        ></div>
       </div>
 
-      <div className="hero__right">
+      <div
+        className={`hero__right ${isLoaded ? "--loaded" : ""}`}
+        style={{transitionDelay: "500ms"}}
+      >
         <div className="hero__right-svg">
           <svg
             viewBox="0 75 508 443"

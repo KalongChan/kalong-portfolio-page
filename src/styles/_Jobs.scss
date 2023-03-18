@@ -13,6 +13,7 @@
     font-weight: bold;
     margin-bottom: 50px;
     position: relative;
+    @include utils.delayOpacity;
 
     @include utils.middle {
       font-size: utils.$middle-title-size;
@@ -44,9 +45,10 @@
     position: absolute;
     top: 0;
     height: 450px;
-    right: -10%;
+    right: 0%;
     z-index: -1;
     animation: spin-animation 5s infinite linear;
+    @include utils.delayOpacity;
 
     @include utils.middle {
       height: 380px;
@@ -68,6 +70,7 @@
 
   &__company {
     margin-bottom: 40px;
+    @include utils.delayOpacity;
   }
   &__title {
     font-size: utils.$normal-job-title-size;

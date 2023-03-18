@@ -1,12 +1,18 @@
 import Link from "next/link";
-import {useState, Fragment} from "react";
+import {useState, Fragment, useEffect} from "react";
 import {navData} from "../config";
 
 const MobileNavbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
   const menuHandler = () => {
     setOpenMenu(!openMenu);
   };
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   //Disable scroll if menu is opened
   openMenu
@@ -16,7 +22,10 @@ const MobileNavbar = () => {
   return (
     <Fragment>
       <header className="mobile-nav">
-        <div className="hamburger-container" onClick={menuHandler}>
+        <div
+          className={`hamburger-container ${isLoaded ? "--loaded" : ""}`}
+          onClick={menuHandler}
+        >
           <div className={`mobile-nav__hamburger${openMenu ? "--active" : ""}`}>
             <span></span>
             <span></span>

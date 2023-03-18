@@ -4,6 +4,7 @@
   display: flex;
   padding-top: 50px;
   margin-bottom: 200px;
+  @include utils.delayOpacity;
 
   @include utils.middle {
     flex-direction: column-reverse;

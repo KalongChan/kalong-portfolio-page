@@ -40,37 +40,45 @@ $nav-height: 50px;
       text-transform: uppercase;
       font-size: 12px;
       cursor: pointer;
+      transform: translateY(-20px);
+      opacity: 0;
       transition: all 0.3s ease-in-out;
 
       &:hover {
         color: utils.$highlight;
       }
 
-      &--active {
+      &--loaded {
         @extend .navbar__list-item;
-        color: utils.$highlight;
-        transform: scale(1.25);
+        opacity: 1;
+        transform: translateY(0px);
+
+        &--active {
+          @extend .navbar__list-item--loaded;
+          color: utils.$highlight;
+          transform: scale(1.25);
+        }
       }
     }
   }
-}
 
-@keyframes nav-slide-up {
-  from {
-    transform: translateY(0);
+  @keyframes nav-slide-up {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc($nav-height * -1));
+      opacity: 0;
+    }
   }
-  to {
-    transform: translateY(calc($nav-height * -1));
-    opacity: 0;
-  }
-}
 
-@keyframes nav-slide-down {
-  from {
-    transform: translateY(calc($nav-height * -1));
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
+  @keyframes nav-slide-down {
+    from {
+      transform: translateY(calc($nav-height * -1));
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+    }
   }
 }

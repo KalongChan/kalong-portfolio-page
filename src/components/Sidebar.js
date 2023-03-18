@@ -1,10 +1,22 @@
 import Link from "next/link";
+import {useEffect, useState} from "react";
 import {BsGithub, BsLinkedin} from "react-icons/bs";
 import {HiOutlineMail} from "react-icons/hi";
 
 const Sidebar = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoaded(true);
+    }, 500);
+  }, []);
+
   return (
-    <div className="sidebar">
+    <div
+      className={`sidebar ${isLoaded ? "--loaded" : ""}`}
+      style={{transitionDelay: "900ms"}}
+    >
       <div className="sidebar__container">
         <ul className="sidebar__items">
           <li className="sidebar__items-item">

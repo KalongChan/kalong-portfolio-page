@@ -1,11 +1,18 @@
-import {Fragment, useState} from "react";
+import {Fragment, useEffect, useState} from "react";
 import * as Yup from "yup";
 import {Formik, Form, Field} from "formik";
 import emailjs from "@emailjs/browser";
 
-const ContactMe = () => {
+const ContactMe = ({inView}) => {
   const [sendClicked, setSendClicked] = useState(false);
   const [msgSent, setMsgSent] = useState(false);
+  const [reveal, setReveal] = useState(false);
+
+  useEffect(() => {
+    if (inView) {
+      setReveal(true);
+    }
+  }, [inView]);
 
   const formSchema = Yup.object().shape({
     email: Yup.string()
@@ -35,17 +42,31 @@ const ContactMe = () => {
 
   return (
     <Fragment>
-      <div className="contact__title">Contact Me</div>
-      <div className="contact__text">
+      <div
+        className={`contact__title ${reveal ? "--loaded" : ""}`}
+        style={{transitionDelay: "0ms"}}
+      >
+        Contact Me
+      </div>
+      <div
+        className={`contact__text ${reveal ? "--loaded" : ""}`}
+        style={{transitionDelay: "200ms"}}
+      >
         Feel free to contact me by completing the form below
       </div>
-      <div className="contact__arrow">
+      <div
+        className={`contact__arrow ${reveal ? "--loaded" : ""}`}
+        style={{transitionDelay: "400ms"}}
+      >
         <img src="/img/up.png"></img>
         <img src="/img/up.png"></img>
         <img src="/img/up.png"></img>
       </div>
 
-      <div className="contact__form">
+      <div
+        className={`contact__form ${reveal ? "--loaded" : ""}`}
+        style={{transitionDelay: "600ms"}}
+      >
         <Formik
           initialValues={initialValues}
           validationSchema={formSchema}

@@ -25,6 +25,11 @@ $normal-job-subtitle-size: 12px;
 $middle-job-subtitle-size: 12px;
 $mobile-job-subtitle-size: 12px;
 
+@mixin delayOpacity {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
 @mixin middle {
   @media (max-width: 1280px) {
     @content;
@@ -41,4 +46,8 @@ $mobile-job-subtitle-size: 12px;
   @media (max-width: 768px) {
     @content;
   }
+}
+
+.--loaded {
+  opacity: 1;
 }

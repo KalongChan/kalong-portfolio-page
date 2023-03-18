@@ -4,15 +4,28 @@ import {BsGithub, BsBoxArrowUpRight} from "react-icons/bs";
 import {Fragment, useEffect, useState} from "react";
 import {projects} from "../config";
 
-const Projects = ({mode}) => {
+const Projects = ({mode, inView}) => {
+  const [reveal, setReveal] = useState(false);
+
+  useEffect(() => {
+    if (inView) {
+      setReveal(true);
+    }
+  }, [inView]);
+
   return (
     <Fragment>
-      <div className="project-group__main-title">What I&#39;ve built</div>
+      <div className={`project-group__main-title ${reveal ? "--loaded" : ""}`}>
+        What I&#39;ve built
+      </div>
 
       {projects.map((project, index) => (
         <div
-          className={`project${(index + 1) % 2 === 0 ? "--even" : ""}`}
+          className={`project${(index + 1) % 2 === 0 ? "--even" : ""} ${
+            reveal ? "--loaded" : ""
+          }`}
           key={index}
+          style={{transitionDelay: `${index * 200}ms`}}
         >
           {mode === "desktop" && (
             <Tilt

@@ -7,28 +7,29 @@ import ContactMe from "@/components/ContactMe";
 import Footer from "@/components/Footer";
 import Sidebar from "@/components/Sidebar";
 import Navbar from "@/components/Navbar";
+import MobileNavbar from "@/components/MobileNavbar";
 import {useInView} from "react-intersection-observer";
 import {Fragment, useEffect, useState} from "react";
-import MobileNavbar from "@/components/MobileNavbar";
+import {navData} from "../config";
 
 export default function Home() {
   //Navbar active section checker
   const [activeSection, setActiveSection] = useState([]);
 
   const {ref: heroRef, inView: heroInView} = useInView({
-    threshold: 0.3,
+    threshold: 0.4,
   });
   const {ref: aboutRef, inView: aboutInView} = useInView({
-    threshold: 0.3,
+    threshold: 0.4,
   });
   const {ref: jobsRef, inView: jobsInView} = useInView({
-    threshold: 0.3,
+    threshold: 0.4,
   });
   const {ref: projectsRef, inView: projectsInView} = useInView({
     threshold: 0.3,
   });
   const {ref: contactRef, inView: contactInView} = useInView({
-    threshold: 0.3,
+    threshold: 0.4,
   });
 
   useEffect(() => {
@@ -60,11 +61,21 @@ export default function Home() {
     };
   }, [handleWindowResize]);
 
+  //Desktop Nav Animation
+  const [isNavLoaded, setIsNavLoaded] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsNavLoaded(true);
+    }, navData.length * 100);
+  }, []);
+
   return (
     <Fragment>
       {/* Navbar */}
-      {mode === "desktop" && <Navbar activeSection={activeSection} />}
-      {mode === "mobile" && <MobileNavbar />}
+      {mode === "desktop" && (
+        <Navbar activeSection={activeSection} isNavLoaded={isNavLoaded} />
+      )}
+      {mode === "mobile" && <MobileNavbar isNavLoaded={isNavLoaded} />}
 
       {/* Body */}
       <div className="home__container">
@@ -73,7 +84,7 @@ export default function Home() {
         </div>
         <div className="about__container" id="about" ref={aboutRef}>
           <About inView={aboutInView} />
-          <Technologies />
+          <Technologies inView={aboutInView} />
         </div>
         <div className="jobs" id="jobs" ref={jobsRef}>
           <Jobs inView={jobsInView} />

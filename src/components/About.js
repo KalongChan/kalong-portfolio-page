@@ -1,8 +1,18 @@
 import Image from "next/image";
+import Link from "next/link";
+import {useEffect, useState} from "react";
 
-const About = () => {
+const About = ({inView}) => {
+  const [reveal, setReveal] = useState(false);
+
+  useEffect(() => {
+    if (inView) {
+      setReveal(true);
+    }
+  }, [inView]);
+
   return (
-    <div className="about">
+    <div className={`about ${reveal ? "--loaded" : ""}`}>
       <div className="about__left">
         <div className="about__left-title">About Me</div>
         <div className="about__left-text">
@@ -12,7 +22,11 @@ const About = () => {
           repellat repellendus tempore facilis.
         </div>
         <div className="about__left-resume">
-          <div className="about__left-resume-btn">View My Resume</div>
+          <div className="about__left-resume-btn">
+            <Link legacyBehavior href="resume.pdf">
+              <a target="_blank">View My Resume</a>
+            </Link>
+          </div>
         </div>
       </div>
       <div className="about__right">
