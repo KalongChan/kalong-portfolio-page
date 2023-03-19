@@ -23,6 +23,7 @@ const Projects = ({mode, inView}) => {
         <Project
           project={project}
           index={index}
+          key={index}
           mode={mode}
           isFirstProjectInView={isFirstProjectInView}
         />
