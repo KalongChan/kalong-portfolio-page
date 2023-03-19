@@ -52,7 +52,7 @@ module.exports = {
     },
     {
       img: "/Projects/portfoliopage.png",
-      title: "My Protfolio Page",
+      title: "My Portfolio Page",
       desc: "The site you're currently viewing",
       stacks: ["React Js", "Scss"],
       github: "https://github.com/KalongChan/kalong-portfolio-page",
