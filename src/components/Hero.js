@@ -1,6 +1,6 @@
 import {Fragment, useEffect, useState} from "react";
 
-const HomeHero = () => {
+const Hero = () => {
   const typewriterText = "Hello World!";
   const [animatedText, setAnimatedText] = useState([]);
   const [typing, setTyping] = useState(true);
@@ -173,4 +173,4 @@ const HomeHero = () => {
   );
 };
 
-export default HomeHero;
+export default Hero;

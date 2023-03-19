@@ -1,18 +1,15 @@
-import Image from "next/image";
 import Link from "next/link";
-import {useEffect, useState} from "react";
+import {useInView} from "react-intersection-observer";
 
-const About = ({inView}) => {
-  const [reveal, setReveal] = useState(false);
-
-  useEffect(() => {
-    if (inView) {
-      setReveal(true);
-    }
-  }, [inView]);
+const About = () => {
+  const {ref, inView} = useInView({
+    threshold: 0.5,
+    initialInView: true,
+    triggerOnce: true,
+  });
 
   return (
-    <div className={`about ${reveal ? "--loaded" : ""}`}>
+    <div className={`about ${inView ? "--loaded" : ""}`} ref={ref}>
       <div className="about__left">
         <div className="about__left-title">About Me</div>
         <div className="about__left-text">

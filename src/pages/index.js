@@ -79,21 +79,21 @@ export default function Home() {
 
       {/* Body */}
       <div className="home__container">
-        <div className="hero" id="home" ref={heroRef}>
-          <Hero inView={heroInView} />
+        <div className="hero" id="home">
+          <Hero />
         </div>
-        <div className="about__container" id="about" ref={aboutRef}>
-          <About inView={aboutInView} />
-          <Technologies inView={aboutInView} />
+        <div className="about__wrapper" id="about">
+          <About />
+          <Technologies />
         </div>
-        <div className="jobs" id="jobs" ref={jobsRef}>
-          <Jobs inView={jobsInView} />
+        <div className="jobs" id="jobs">
+          <Jobs />
         </div>
-        <div className="project-group" id="projects" ref={projectsRef}>
-          <Projects inView={projectsInView} mode={mode} />
+        <div className="projects" id="projects">
+          <Projects mode={mode} />
         </div>
-        <div className="contact" id="contact" ref={contactRef}>
-          <ContactMe inView={contactInView} />
+        <div className="contact__wrapper" id="contact">
+          <ContactMe />
         </div>
         <Sidebar />
       </div>

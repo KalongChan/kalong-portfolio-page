@@ -1,19 +1,17 @@
-import {useEffect, useState} from "react";
+import {useInView} from "react-intersection-observer";
 
-const Technologies = ({inView}) => {
-  const [reveal, setReveal] = useState(false);
-
-  useEffect(() => {
-    if (inView) {
-      setReveal(true);
-    }
-  }, [inView]);
+const Technologies = () => {
+  const {ref, inView} = useInView({
+    threshold: 0.5,
+    initialInView: true,
+    triggerOnce: true,
+  });
 
   return (
     <div
-      className={`tech ${reveal ? "--loaded" : ""}`}
+      className={`tech ${inView ? "--loaded" : ""}`}
       id="technologies"
-      style={{transitionDelay: "200ms"}}
+      ref={ref}
     >
       <div className="tech__left">
         <div className="tech__left-img-row">
