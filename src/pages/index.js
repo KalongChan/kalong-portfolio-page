@@ -20,13 +20,13 @@ export default function Home() {
     threshold: 0.4,
   });
   const {ref: aboutRef, inView: aboutInView} = useInView({
-    threshold: 0.4,
+    threshold: 0.3,
   });
   const {ref: jobsRef, inView: jobsInView} = useInView({
-    threshold: 0.4,
+    threshold: 0.3,
   });
   const {ref: projectsRef, inView: projectsInView} = useInView({
-    threshold: 0.3,
+    threshold: 0.1,
   });
   const {ref: contactRef, inView: contactInView} = useInView({
     threshold: 0.4,
@@ -80,20 +80,20 @@ export default function Home() {
       {/* Body */}
       <div className="home__container">
         <div className="hero" id="home" ref={heroRef}>
-          <Hero inView={heroInView} />
+          <Hero />
         </div>
-        <div className="about__container" id="about" ref={aboutRef}>
-          <About inView={aboutInView} />
-          <Technologies inView={aboutInView} />
+        <div className="about__wrapper" id="about" ref={aboutRef}>
+          <About />
+          <Technologies />
         </div>
         <div className="jobs" id="jobs" ref={jobsRef}>
-          <Jobs inView={jobsInView} />
+          <Jobs />
         </div>
-        <div className="project-group" id="projects" ref={projectsRef}>
-          <Projects inView={projectsInView} mode={mode} />
+        <div className="projects" id="projects" ref={projectsRef}>
+          <Projects mode={mode} />
         </div>
-        <div className="contact" id="contact" ref={contactRef}>
-          <ContactMe inView={contactInView} />
+        <div className="contact__wrapper" id="contact" ref={contactRef}>
+          <ContactMe />
         </div>
         <Sidebar />
       </div>

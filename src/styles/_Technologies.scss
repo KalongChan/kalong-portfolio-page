@@ -3,7 +3,7 @@
 .tech {
   display: flex;
   padding-top: 50px;
-  margin-bottom: 200px;
+  margin-bottom: 50px;
   @include utils.delayOpacity;
 
   @include utils.middle {
@@ -12,7 +12,7 @@
 
   @include utils.mobile {
     padding-top: 70px;
-    margin-bottom: 100px;
+    margin-bottom: 0px;
   }
   &__right {
     flex-shrink: 0;

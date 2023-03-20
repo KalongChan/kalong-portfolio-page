@@ -83,4 +83,8 @@ module.exports = {
     {nav: "projects", id: "#projects"},
     {nav: "contact", id: "#contact"},
   ],
+
+  selfIntroduction: [
+    "Born and raised in Hong Kong and currently living in Taiwan. I am a QA Engineer who aspires to become a Front-end Developer. Far from perfection, but still striving to learn new knowledge every day.",
+  ],
 };

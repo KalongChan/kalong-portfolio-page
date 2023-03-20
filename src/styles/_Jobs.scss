@@ -1,11 +1,11 @@
 @use "./utils.scss";
 
 .jobs {
-  margin-bottom: 200px;
+  margin-bottom: 50px;
   padding-top: 50px;
   @include utils.mobile {
-    margin-bottom: 100px;
     padding-top: 70px;
+    margin-bottom: 0px;
   }
 
   &__main-title {
@@ -19,7 +19,6 @@
       font-size: utils.$middle-title-size;
     }
     @include utils.mobile {
-      // font-size: utils.$mobile-title-size;
       font-size: 24px;
     }
 
@@ -71,7 +70,11 @@
   &__company {
     margin-bottom: 40px;
     @include utils.delayOpacity;
+    &:last-of-type {
+      margin-bottom: 0px;
+    }
   }
+
   &__title {
     font-size: utils.$normal-job-title-size;
 

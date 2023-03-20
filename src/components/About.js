@@ -1,26 +1,19 @@
-import Image from "next/image";
 import Link from "next/link";
-import {useEffect, useState} from "react";
+import {useInView} from "react-intersection-observer";
+import {selfIntroduction} from "@/config";
 
-const About = ({inView}) => {
-  const [reveal, setReveal] = useState(false);
-
-  useEffect(() => {
-    if (inView) {
-      setReveal(true);
-    }
-  }, [inView]);
+const About = () => {
+  const {ref, inView} = useInView({
+    threshold: 0.5,
+    initialInView: true,
+    triggerOnce: true,
+  });
 
   return (
-    <div className={`about ${reveal ? "--loaded" : ""}`}>
+    <div className={`about ${inView ? "--loaded" : ""}`} ref={ref}>
       <div className="about__left">
         <div className="about__left-title">About Me</div>
-        <div className="about__left-text">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere
-          repellat quae mollitia eum reprehenderit non exercitationem eveniet
-          dicta, consectetur, laborum nemo repudiandae commodi nulla. Nam sint
-          repellat repellendus tempore facilis.
-        </div>
+        <div className="about__left-text">{selfIntroduction}</div>
         <div className="about__left-resume">
           <div className="about__left-resume-btn">
             <Link legacyBehavior href="resume.pdf">

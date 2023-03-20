@@ -1,4 +1,5 @@
 import "@/styles/global.scss";
+import {selfIntroduction} from "@/config";
 import Head from "next/head";
 
 export default function App({Component, pageProps}) {
@@ -6,8 +7,8 @@ export default function App({Component, pageProps}) {
     <>
       <Head>
         <title>Kalong Chan</title>
-        <meta name="description" content="Some random meta description" />
-        <meta property="og:image" content="/img/about_img.png" />
+        <meta name="description" content={selfIntroduction} />
+        <meta property="og:image" content="/Projects/portfoliopage.png" />
       </Head>
       <Component {...pageProps} />
     </>
