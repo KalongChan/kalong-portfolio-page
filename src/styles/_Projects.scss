@@ -1,12 +1,12 @@
 @use "./utils.scss";
 
 .projects {
-  margin-bottom: 200px;
+  margin-bottom: 50px;
   padding-top: 50px;
 
   @include utils.mobile {
     padding-top: 70px;
-    margin-bottom: 100px;
+    margin-bottom: 0px;
   }
 
   &__main-title {
@@ -46,13 +46,17 @@
   margin-bottom: 100px;
   @include utils.delayOpacity;
 
+  &:last-child {
+    margin-bottom: 0px;
+  }
+
   @include utils.middle {
     flex-direction: column !important;
   }
 
   @include utils.mobile {
     display: block;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
   }
 
   &--even {

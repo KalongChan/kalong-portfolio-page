@@ -2,7 +2,7 @@ import {Fragment, useState} from "react";
 import {projects} from "../config";
 import Project from "./Project";
 
-const Projects = ({mode, inView}) => {
+const Projects = ({mode}) => {
   const [firstProjectReveal, setFirstProjectReveal] = useState(false);
 
   const isFirstProjectInView = (firstProject) => {

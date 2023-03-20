@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {useInView} from "react-intersection-observer";
 import Link from "next/link";
 import Tilt from "react-parallax-tilt";
@@ -6,7 +6,7 @@ import {BsGithub, BsBoxArrowUpRight} from "react-icons/bs";
 
 const Project = ({mode, project, index, isFirstProjectInView}) => {
   const {ref, inView} = useInView({
-    threshold: 0.5,
+    threshold: 0.3,
     initialInView: true,
     triggerOnce: true,
   });

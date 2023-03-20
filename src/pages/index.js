@@ -20,13 +20,13 @@ export default function Home() {
     threshold: 0.4,
   });
   const {ref: aboutRef, inView: aboutInView} = useInView({
-    threshold: 0.4,
+    threshold: 0.3,
   });
   const {ref: jobsRef, inView: jobsInView} = useInView({
-    threshold: 0.4,
+    threshold: 0.3,
   });
   const {ref: projectsRef, inView: projectsInView} = useInView({
-    threshold: 0.2,
+    threshold: 0.1,
   });
   const {ref: contactRef, inView: contactInView} = useInView({
     threshold: 0.4,

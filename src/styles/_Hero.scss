@@ -1,12 +1,9 @@
 @use "./utils.scss";
 
 .hero {
-  // margin: 80px 15%;
-  // justify-content: center;
-  //50px nav height , 24px*2 padding , 80px margin-top
-  // height: calc(100vh - 50px - 48px - 80px - 200px);
   display: flex;
   padding-top: 80px;
+  margin-bottom: 50px;
   transition: all 0.3s ease-in-out;
 
   @include utils.middle {
@@ -17,7 +14,7 @@
   @include utils.mobile {
     display: flex;
     justify-content: center;
-    margin-top: 0;
+    margin-bottom: 0px;
   }
 
   &__left {
@@ -61,11 +58,6 @@
     }
 
     &-scroll {
-      // position: absolute;
-      // bottom: -120px;
-      // left: 220px;
-      // transform: translateX(-50%);
-
       margin-top: 200px;
       position: relative;
       display: flex;
