@@ -61,24 +61,4 @@ $nav-height: 50px;
       }
     }
   }
-
-  @keyframes nav-slide-up {
-    from {
-      transform: translateY(0);
-    }
-    to {
-      transform: translateY(calc($nav-height * -1));
-      opacity: 0;
-    }
-  }
-
-  @keyframes nav-slide-down {
-    from {
-      transform: translateY(calc($nav-height * -1));
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-    }
-  }
 }

@@ -8,6 +8,7 @@ $mobile-nav-height: 70px;
   height: $mobile-nav-height;
   width: 100%;
   background-color: utils.$bg-color;
+  // background-color: #fff;
   box-shadow: 0 10px 20px -10px utils.$bg-color;
   z-index: 9;
 
@@ -59,8 +60,8 @@ $mobile-nav-height: 70px;
 }
 
 .hamburger-container {
-  position: fixed;
-  right: 5%;
+  margin-left: auto;
+  margin-right: 5%;
   width: 42px;
   height: $mobile-nav-height;
   cursor: pointer;
@@ -71,7 +72,6 @@ $mobile-nav-height: 70px;
 .mobile-nav__hamburger {
   position: relative;
   margin-left: auto;
-
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -143,5 +143,33 @@ $mobile-nav-height: 70px;
         left: 50%;
       }
     }
+  }
+}
+
+.--nav-scroll-up {
+  animation: nav-slide-down 1s ease-in-out;
+}
+
+.--nav-scroll-down {
+  animation: nav-slide-up 1s ease-in-out forwards;
+}
+
+@keyframes nav-slide-up {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc($mobile-nav-height * -1));
+    opacity: 0;
+  }
+}
+
+@keyframes nav-slide-down {
+  from {
+    transform: translateY(calc($mobile-nav-height * -1));
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
   }
 }
