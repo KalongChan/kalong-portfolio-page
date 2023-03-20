@@ -1,5 +1,6 @@
 import Link from "next/link";
 import {useInView} from "react-intersection-observer";
+import {selfIntroduction} from "@/config";
 
 const About = () => {
   const {ref, inView} = useInView({
@@ -12,12 +13,7 @@ const About = () => {
     <div className={`about ${inView ? "--loaded" : ""}`} ref={ref}>
       <div className="about__left">
         <div className="about__left-title">About Me</div>
-        <div className="about__left-text">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere
-          repellat quae mollitia eum reprehenderit non exercitationem eveniet
-          dicta, consectetur, laborum nemo repudiandae commodi nulla. Nam sint
-          repellat repellendus tempore facilis.
-        </div>
+        <div className="about__left-text">{selfIntroduction}</div>
         <div className="about__left-resume">
           <div className="about__left-resume-btn">
             <Link legacyBehavior href="resume.pdf">

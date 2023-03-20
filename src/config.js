@@ -52,7 +52,7 @@ module.exports = {
     },
     {
       img: "/Projects/portfoliopage.png",
-      title: "My Protfolio Page",
+      title: "My Portfolio Page",
       desc: "The site you're currently viewing",
       stacks: ["React Js", "Scss"],
       github: "https://github.com/KalongChan/kalong-portfolio-page",
@@ -82,5 +82,9 @@ module.exports = {
     {nav: "experiences", id: "#jobs"},
     {nav: "projects", id: "#projects"},
     {nav: "contact", id: "#contact"},
+  ],
+
+  selfIntroduction: [
+    "Born and raised in Hong Kong and currently living in Taiwan. I am a QA Engineer who aspires to become a Front-end Developer. Far from perfection, but still striving to learn new knowledge every day.",
   ],
 };
