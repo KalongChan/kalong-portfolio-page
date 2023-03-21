@@ -21,8 +21,10 @@ const MobileNavbar = () => {
 
   //Disable scroll if menu is opened
   openMenu
-    ? (document.body.style.overflow = "hidden")
-    : (document.body.style.overflow = "auto");
+    ? (document.body.style.touchAction = "none") &&
+      (document.body.style.overflow = "hidden")
+    : (document.body.style.touchAction = "") &&
+      (document.body.style.overflow = "auto");
 
   //Close openMenu to false after clicking links inside menu
   const clickLinkHandler = () => {
