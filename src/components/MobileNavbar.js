@@ -21,10 +21,10 @@ const MobileNavbar = () => {
 
   //Disable scroll if menu is opened
   openMenu
-    ? (document.body.style.touchAction = "none") &&
-      (document.body.style.overflow = "hidden")
-    : (document.body.style.touchAction = "") &&
-      (document.body.style.overflow = "auto");
+    ? (document.body.style.overflow = "hidden") &&
+      (document.body.style.touchAction = "none")
+    : (document.body.style.overflow = "auto") &&
+      (document.body.style.touchAction = "");
 
   //Close openMenu to false after clicking links inside menu
   const clickLinkHandler = () => {
@@ -52,21 +52,27 @@ const MobileNavbar = () => {
     return () => {
       window.removeEventListener("scroll", scrollDirection);
     };
-  }),
-    [prevScroll];
+  }, [prevScroll]);
 
   return (
     <Fragment>
-      <header
-        className={`mobile-nav ${
-          scrollUp ? "--nav-scroll-up" : "--nav-scroll-down"
-        }`}
-      >
+      <header className={`mobile-nav__container`}>
         <div
-          className={`hamburger-container ${isLoaded ? "--loaded" : ""}`}
+          className={`mobile-nav ${
+            scrollUp ? "--nav-scroll-up" : "--nav-scroll-down"
+          }`}
+        ></div>
+        <div
+          className={`hamburger-container ${isLoaded ? "--loaded" : ""} ${
+            scrollUp ? "--nav-scroll-up" : "--nav-scroll-down"
+          }`}
           onClick={menuHandler}
         >
-          <div className={`mobile-nav__hamburger${openMenu ? "--active" : ""}`}>
+          <div
+            className={`mobile-nav__hamburger${openMenu ? "--active" : ""} ${
+              scrollUp ? "--nav-scroll-up" : "--nav-scroll-down"
+            }`}
+          >
             <span></span>
             <span></span>
             <span></span>
@@ -88,6 +94,7 @@ const MobileNavbar = () => {
             ))}
           </ul>
         </div>
+
         <div
           className={`mobile-nav__overlay${openMenu ? "--active" : ""}`}
           onClick={menuHandler}
