@@ -54,7 +54,7 @@ module.exports = {
       img: "/Projects/portfoliopage.png",
       title: "My Portfolio Page",
       desc: "The site you're currently viewing",
-      stacks: ["React Js", "Scss"],
+      stacks: ["React Js", "Next.js", "Scss"],
       github: "https://github.com/KalongChan/kalong-portfolio-page",
       liveDemo: "https://kalongchan.vercel.app/",
     },
