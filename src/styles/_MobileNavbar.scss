@@ -148,11 +148,11 @@ $mobile-nav-height: 70px;
 }
 
 .--nav-scroll-up {
-  animation: nav-slide-down 1s ease-in-out;
+  animation: nav-slide-down 0.7s ease-in-out forwards;
 }
 
 .--nav-scroll-down {
-  animation: nav-slide-up 1s ease-in-out forwards;
+  animation: nav-slide-up 0.7s ease-in-out forwards;
 }
 
 @keyframes nav-slide-up {
