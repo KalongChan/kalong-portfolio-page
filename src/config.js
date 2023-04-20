@@ -59,6 +59,14 @@ module.exports = {
       liveDemo: "https://kalongchan.vercel.app/",
     },
     {
+      img: "/Projects/f1-app.png",
+      title: "F1 Result App",
+      desc: "A web application for checking F1 results and standings",
+      stacks: ["React Js", "Scss"],
+      github: "https://github.com/KalongChan/f1-result",
+      liveDemo: "https://f1-result-one.vercel.app/",
+    },
+    {
       img: "/Projects/todo.png",
       title: "ToDoList",
       desc: "A simple Todo List built with React Hooks",
