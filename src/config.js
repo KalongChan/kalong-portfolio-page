@@ -2,10 +2,22 @@ module.exports = {
   jobs: [
     {
       title: "Quality Assurance Engineer",
+      company: "Cloras Technology",
+      location: "Taipei, Taiwan",
+      url: "https://cloras.io/",
+      time: "May 2023 - Present",
+      desc: [
+        "Perform tests on a web-based membership management system",
+        "Establish testing standards and methods for the project",
+        "Develop automation testing scripts with Playwright",
+      ],
+    },
+    {
+      title: "Quality Assurance Engineer",
       company: "Presslogic",
       location: "Taipei, Taiwan",
       url: "https://presslogic.com/",
-      time: "Aug 2022 - Present",
+      time: "Aug 2022 - May 2023",
       desc: [
         "Create test cases and perform tests for digital media platforms",
         "Report and track bugs through Jira",
